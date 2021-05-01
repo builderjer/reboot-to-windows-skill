@@ -16,6 +16,7 @@ class RebootToWindowsSkill(MycroftSkill):
     def handle_reboot_intent(self, message):
         should_reboot = self.ask_yesno('ask.to.reboot')
         if should_reboot:
+            self.speak_dialog('reboot.now')
             os.system('sudo grub-reboot {}'.format(self.reboot_os))
             os.system('sudo reboot')
 
